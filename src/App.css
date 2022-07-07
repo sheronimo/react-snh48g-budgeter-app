@@ -1,8 +1,9 @@
 .card {
 	max-width: 51.25rem;
 	background-color: hsl(0, 0%, 98%);
-	border-radius: 0.5rem;
+	border-radius: 1rem;
 	padding: 1.5rem;
+	box-shadow: 0px 10px 16px 0 rgba(0, 0, 0, 0.04);
 }
 
 .title {
