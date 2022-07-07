@@ -10,12 +10,14 @@ function App() {
 	return (
 		<div className='card'>
 			<h1 className='title'>SNH48 Vote Budgeter</h1>
-			<form>
+			<form className='form'>
 				<label>Enter your budget:</label>
-				<input type='number'></input>
-				<select>
-					<option>USD</option>
-				</select>
+				<div className='input-group'>
+					<input type='number'></input>
+					<select>
+						<option>USD</option>
+					</select>
+				</div>
 				<button type='submit'>Submit</button>
 			</form>
 			<ul className='results'>
