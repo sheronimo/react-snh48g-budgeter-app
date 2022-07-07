@@ -15,6 +15,12 @@ ul {
 	list-style: none;
 }
 
+input,
+button,
+select {
+	border: 0;
+}
+
 body {
 	font-family: 'Poppins', sans-serif;
 	min-height: 100vh;
