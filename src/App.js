@@ -20,7 +20,7 @@ function App() {
 					Submit
 				</button>
 			</form>
-			<ul className='results'>
+			<ul className='results round-corner'>
 				<li className='result'>
 					<span>Amount in CNY:</span>
 					<span>100</span>

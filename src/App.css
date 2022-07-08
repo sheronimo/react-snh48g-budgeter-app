@@ -11,7 +11,7 @@
 }
 
 .title {
-	font-size: 1.25rem;
+	font-size: 1.5rem;
 	font-weight: 600;
 	text-align: center;
 	color: hsl(0, 0%, 35%);
@@ -20,7 +20,7 @@
 
 label {
 	font-weight: 300;
-	font-size: 0.8rem;
+	font-size: 0.9125rem;
 }
 
 .budget,
@@ -31,7 +31,7 @@ label {
 	padding-block: 10px;
 	padding-inline: 5px;
 	background-color: hsl(0, 0%, 100%);
-	border: 3px solid hsl(0, 0%, 90%);
+	border: 2px solid hsl(0, 0%, 90%);
 }
 
 .submit {
@@ -52,4 +52,16 @@ label {
 
 .submit:active {
 	background-color: hsl(339, 98%, 30%);
+}
+
+.results {
+	padding: 1rem;
+	background-color: hsl(0, 0%, 95%);
+}
+
+.result {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding-block: 0.25rem;
 }
