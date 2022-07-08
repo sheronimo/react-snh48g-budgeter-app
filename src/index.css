@@ -17,8 +17,10 @@ ul {
 
 input,
 button,
-select {
+select,
+label {
 	border: 0;
+	display: block;
 }
 
 body {

@@ -8,17 +8,17 @@ function App() {
 	});
 
 	return (
-		<div className='card'>
+		<div className='card round-corner'>
 			<h1 className='title'>SNH48 Vote Budgeter</h1>
 			<form className='form'>
 				<label>Enter your budget:</label>
-				<div className='input-group'>
-					<input type='number'></input>
-					<select>
-						<option>USD</option>
-					</select>
-				</div>
-				<button type='submit'>Submit</button>
+				<input type='number' className='budget round-corner'></input>
+				<select className='currency round-corner'>
+					<option>USD</option>
+				</select>
+				<button type='submit' className='submit round-corner'>
+					Submit
+				</button>
 			</form>
 			<ul className='results'>
 				<li className='result'>
