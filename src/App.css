@@ -28,8 +28,7 @@ label {
 	width: 100%;
 	margin-top: 1rem;
 	font-family: 'Poppins', sans-serif;
-	padding-block: 10px;
-	padding-inline: 5px;
+	padding: 10px;
 	background-color: hsl(0, 0%, 100%);
 	border: 2px solid hsl(0, 0%, 90%);
 }
