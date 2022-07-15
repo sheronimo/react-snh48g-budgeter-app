@@ -12,6 +12,8 @@ function App() {
 		votes: 0
 	});
 
+	const [isSubmitted, setIsSubmitted] = useState(false);
+
 	function handleChange(e) {
 		const { name, value } = e.target;
 		setOptions((prevOptions) => {
@@ -27,8 +29,10 @@ function App() {
 
 		setResults(() => ({
 			yuan: options.budget * 6.71,
-			votes: ((options.budget * 6.71) / 35).toFixed(2)
+			votes: Math.floor((options.budget * 6.71) / 35)
 		}));
+
+		setIsSubmitted(true);
 	}
 
 	return (
@@ -55,16 +59,18 @@ function App() {
 				</select>
 				<button className='submit round-corner'>Submit</button>
 			</form>
-			<ul className='results round-corner'>
-				<li className='result'>
-					<span>Amount in CNY:</span>
-					<span>{results.yuan}</span>
-				</li>
-				<li className='result'>
-					<span>Votes:</span>
-					<span>{results.votes}</span>
-				</li>
-			</ul>
+			{isSubmitted && (
+				<ul className='results round-corner'>
+					<li className='result'>
+						<span>Amount in CNY:</span>
+						<span>&#x00A5;{results.yuan}</span>
+					</li>
+					<li className='result'>
+						<span>Votes:</span>
+						<span>{results.votes}</span>
+					</li>
+				</ul>
+			)}
 		</div>
 	);
 }
