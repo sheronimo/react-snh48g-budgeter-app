@@ -2,18 +2,31 @@ import { useState, useEffect } from 'react';
 import './App.css';
 
 function App() {
+	// Other variables
+	const URL = 'https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest';
+
+	// State variables
 	const [options, setOptions] = useState({
 		budget: 0,
 		selectedCurrency: ''
 	});
-
 	const [results, setResults] = useState({
 		yuan: 0,
 		votes: 0
 	});
-
 	const [isSubmitted, setIsSubmitted] = useState(false);
+	const [currencies, setCurrencies] = useState([]);
 
+	// Fetch currencies
+	useEffect(() => {
+		fetch(`${URL}/currencies.min.json`)
+			.then((res) => res.json())
+			.then((data) => {
+				setCurrencies([...Object.keys(data)]);
+			});
+	}, []);
+
+	// Handle changes in textbox content
 	function handleChange(e) {
 		const { name, value } = e.target;
 		setOptions((prevOptions) => {
@@ -24,13 +37,18 @@ function App() {
 		});
 	}
 
+	// Handle form submission
 	function handleSubmit(e) {
 		e.preventDefault();
 
-		setResults(() => ({
-			yuan: options.budget * 6.71,
-			votes: Math.floor((options.budget * 6.71) / 35)
-		}));
+		fetch(`${URL}/currencies/${options.selectedCurrency}/cny.json`)
+			.then((res) => res.json())
+			.then((data) => {
+				setResults(() => ({
+					yuan: (options.budget * data.cny).toFixed(2),
+					votes: Math.floor((options.budget * data.cny) / 35)
+				}));
+			});
 
 		setIsSubmitted(true);
 	}
@@ -55,21 +73,32 @@ function App() {
 					value={options.selectedCurrency}
 					onChange={handleChange}>
 					<option value=''>---Choose---</option>
-					<option value='USD'>USD</option>
+					{currencies.map((currency) => (
+						<option key={currency} value={currency}>
+							{currency}
+						</option>
+					))}
 				</select>
 				<button className='submit round-corner'>Submit</button>
 			</form>
 			{isSubmitted && (
-				<ul className='results round-corner'>
-					<li className='result'>
-						<span>Amount in CNY:</span>
-						<span>&#x00A5;{results.yuan}</span>
-					</li>
-					<li className='result'>
-						<span>Votes:</span>
-						<span>{results.votes}</span>
-					</li>
-				</ul>
+				<div className='results round-corner'>
+					<ul>
+						<li className='result'>
+							<span>Amount in CNY:</span>
+							<span>&#x00A5;{results.yuan}</span>
+						</li>
+						<li className='result'>
+							<span>Votes:</span>
+							<span>{results.votes}</span>
+						</li>
+					</ul>
+					{results.yuan < 35 && (
+						<p className='disclaimer'>
+							You need a minimum of &#x00A5;35 for one vote.
+						</p>
+					)}
+				</div>
 			)}
 		</div>
 	);
