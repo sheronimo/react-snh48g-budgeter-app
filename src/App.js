@@ -38,6 +38,8 @@ function App() {
 	function handleSubmit(e) {
 		e.preventDefault();
 
+		setIsSubmitted(false);
+
 		fetch(`${URL}/currencies/${options.selectedCurrency}/cny.json`)
 			.then((res) => res.json())
 			.then((data) => {
@@ -45,9 +47,8 @@ function App() {
 					yuan: (options.budget * data.cny).toFixed(2),
 					votes: Math.floor((options.budget * data.cny) / 35)
 				}));
+				setIsSubmitted(true);
 			});
-
-		setIsSubmitted(true);
 	}
 
 	return (
