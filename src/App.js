@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import './App.css';
 import Results from './components/Results';
+import Form from './components/Form';
 
 function App() {
 	// Other variables
@@ -16,16 +17,6 @@ function App() {
 		votes: 0
 	});
 	const [isSubmitted, setIsSubmitted] = useState(false);
-	const [currencies, setCurrencies] = useState([]);
-
-	// Fetch currencies
-	useEffect(() => {
-		fetch(`${URL}/currencies.min.json`)
-			.then((res) => res.json())
-			.then((data) => {
-				setCurrencies([...Object.keys(data)]);
-			});
-	}, []);
 
 	// Handle changes in textbox content
 	function handleChange(e) {
@@ -57,31 +48,12 @@ function App() {
 	return (
 		<div className='card round-corner'>
 			<h1 className='title'>SNH48 Vote Budgeter</h1>
-			<form className='form' onSubmit={handleSubmit}>
-				<label>Enter your budget:</label>
-				<input
-					type='number'
-					className='budget round-corner'
-					placeholder='Budget...'
-					name='budget'
-					value={options.budget}
-					onChange={handleChange}
-				/>
-				<select
-					className='currency round-corner'
-					id='selectedCurrency'
-					name='selectedCurrency'
-					value={options.selectedCurrency}
-					onChange={handleChange}>
-					<option value=''>---Choose---</option>
-					{currencies.map((currency) => (
-						<option key={currency} value={currency}>
-							{currency}
-						</option>
-					))}
-				</select>
-				<button className='submit round-corner'>Submit</button>
-			</form>
+			<Form
+				handleSubmit={handleSubmit}
+				handleChange={handleChange}
+				budget={options.budget}
+				selectedCurrency={options.selectedCurrency}
+				url={URL}></Form>
 			{isSubmitted && (
 				<Results yuan={results.yuan} votes={results.votes}></Results>
 			)}
