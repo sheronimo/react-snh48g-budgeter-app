@@ -30,7 +30,7 @@ const Form = (props) => {
 				name='selectedCurrency'
 				value={props.selectedCurrency}
 				onChange={props.handleChange}>
-				<option value='' disabled selected hidden>
+				<option value='' disabled hidden>
 					---Choose---
 				</option>
 				{currencies.map((currency) => (

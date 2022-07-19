@@ -10,13 +10,18 @@ function App() {
 	// State variables
 	const [options, setOptions] = useState({
 		budget: 0,
-		selectedCurrency: ''
+		selectedCurrency: localStorage.getItem('SNHBUDGETER-savedCurrency') || ''
 	});
 	const [results, setResults] = useState({
 		yuan: 0,
 		votes: 0
 	});
 	const [isSubmitted, setIsSubmitted] = useState(false);
+
+	// Save selected currency in localStorage
+	useEffect(() => {
+		localStorage.setItem('SNHBUDGETER-savedCurrency', options.selectedCurrency);
+	}, [options]);
 
 	// Handle changes in textbox content
 	function handleChange(e) {
