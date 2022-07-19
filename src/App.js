@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import './App.css';
+import Results from './components/Results';
 
 function App() {
 	// Other variables
@@ -82,23 +83,7 @@ function App() {
 				<button className='submit round-corner'>Submit</button>
 			</form>
 			{isSubmitted && (
-				<div className='results round-corner'>
-					<ul>
-						<li className='result'>
-							<span>Amount in CNY:</span>
-							<span>&#x00A5;{results.yuan}</span>
-						</li>
-						<li className='result'>
-							<span>Votes:</span>
-							<span>{results.votes}</span>
-						</li>
-					</ul>
-					{results.yuan < 35 && (
-						<p className='disclaimer'>
-							You need a minimum of &#x00A5;35 for one vote.
-						</p>
-					)}
-				</div>
+				<Results yuan={results.yuan} votes={results.votes}></Results>
 			)}
 		</div>
 	);

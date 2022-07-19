@@ -52,23 +52,3 @@ label {
 .submit:active {
 	background-color: hsl(339, 98%, 30%);
 }
-
-.results {
-	padding: 1rem;
-	background-color: hsl(0, 0%, 95%);
-}
-
-.result {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	padding-block: 0.25rem;
-}
-
-.disclaimer {
-	margin-top: 1rem;
-	font-style: italic;
-	font-size: 0.75rem;
-	text-align: center;
-	color: red;
-}
