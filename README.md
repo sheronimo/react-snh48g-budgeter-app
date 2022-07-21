@@ -1,4 +1,25 @@
-# Getting Started with Create React App
+# SNH48G Budgeter App
+
+A simple React app for converting a specified budget from your preferred currency to Chinese Yuan, and calculating how many votes can be purchased for SNH48's 2022 General Election. A currency API is used for populating the currency options and converting to Chinese Yuan.
+
+## Table of contents
+
+- [Links](#links)
+- [Getting Started with Create React App](#getting-started)
+- [Available Scripts](#scripts)
+  - [`npm start`](#npm-start)
+  - [`npm test`](#npm-test)
+  - [`npm run build`](#npm-build)
+  - [`npm run eject`](#npm-eject)
+- [Learn More](#learn-more)
+- [Credits](#credits)
+
+## Links
+
+- Repository: [https://github.com/sheronimo/react-snh48g-budgeter-app](https://github.com/sheronimo/react-snh48g-budgeter-app)
+- Live site URL: [https://snh48g-budgeter.netlify.app/](https://snh48g-budgeter.netlify.app/)
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -45,26 +66,6 @@ You can learn more in the [Create React App documentation](https://facebook.gith
 
 To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+## Credits
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Fahwaz Ahmed's currency API: [Link](https://github.com/fawazahmed0/currency-api)
