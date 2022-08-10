@@ -35,7 +35,7 @@ const Form = (props) => {
 				</option>
 				{currencies.map((currency) => (
 					<option key={currency} value={currency}>
-						{currency}
+						{currency.toUpperCase()}
 					</option>
 				))}
 			</select>
